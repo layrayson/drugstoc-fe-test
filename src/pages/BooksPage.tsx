@@ -1,5 +1,11 @@
+import BooksGridView from "../components/books/BooksGridView";
+
 const BooksPage = () => {
-  return <div>Books</div>;
+  return (
+    <div>
+      <BooksGridView />
+    </div>
+  );
 };
 
 export default BooksPage;
