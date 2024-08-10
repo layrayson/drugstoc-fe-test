@@ -1,5 +1,11 @@
+import HomeScreen from "../components/home/HomeScreen";
+
 const HomePage = () => {
-  return <div>home</div>;
+  return (
+    <div>
+      <HomeScreen />
+    </div>
+  );
 };
 
 export default HomePage;
