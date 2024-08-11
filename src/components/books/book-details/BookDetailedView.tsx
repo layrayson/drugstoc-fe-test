@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
+import { MardownComponent } from "./MarkdownComponent";
 
 interface BookDetailedViewProps {
   title?: string;
@@ -9,7 +10,7 @@ interface BookDetailedViewProps {
   bookImage?: string;
   author?: string;
   avatar?: string;
-  updatedAt?: string;
+  publishedAt?: string;
   showSkeleton: boolean;
 }
 const BookDetailedView = ({
@@ -18,28 +19,28 @@ const BookDetailedView = ({
   bookImage,
   author,
   avatar,
-  updatedAt,
+  publishedAt,
   showSkeleton,
 }: BookDetailedViewProps) => {
-  const formatted = new Date(updatedAt ?? "");
+  const formatted = publishedAt ? new Date(publishedAt) : "";
   return (
     <SkeletonTheme highlightColor="#9999">
       <div>
-        <div className="p-2">
+        <div className="pb-2">
           <div className="flex gap-4">
             <div className="flex-grow">
               <div>
                 <h5 className="font-medium text-lg">
                   {" "}
-                  {showSkeleton ? <Skeleton /> : author}
+                  {showSkeleton ? <Skeleton /> : `By ${author}`}
                 </h5>
               </div>
               <div>
                 <p className="text-sm font-medium text-gray-500">
                   {showSkeleton ? (
                     <Skeleton />
-                  ) : !updatedAt ? (
-                    ""
+                  ) : !publishedAt ? (
+                    "Unknown"
                   ) : (
                     format(formatted, "do 'of' MMMM yyyy")
                   )}
@@ -55,7 +56,7 @@ const BookDetailedView = ({
             <img
               alt={title ?? ""}
               src={bookImage ?? ""}
-              className="w-full h-96 md:rounded transition duration-300 object-cover"
+              className="w-full h-96 md:rounded transition duration-300 object-contain bg-slate-100"
             />
           )}
         </div>
@@ -71,10 +72,7 @@ const BookDetailedView = ({
                 {showSkeleton ? (
                   <Skeleton />
                 ) : (
-                  <MarkdownPreview
-                    source={content}
-                    className="!bg-transparent !font-nunito !text-inherit"
-                  />
+                  <MardownComponent content={content ?? ""} />
                 )}
               </p>
             </div>

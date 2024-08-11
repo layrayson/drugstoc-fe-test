@@ -6,13 +6,12 @@ const BooksLoaderSkeleton = () => {
       {[1, 2, 3].map((el, index) => (
         <BookPreview
           key={"post-skeleton" + index}
+          onClick={() => {}}
+          showSkeleton={true}
           title={""}
           content={""}
           bookImage={""}
           author={""}
-          updatedAt={""}
-          onClick={() => {}}
-          showSkeleton={true}
         />
       ))}{" "}
     </div>

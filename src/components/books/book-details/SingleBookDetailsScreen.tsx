@@ -17,7 +17,7 @@ const SingleBookDetailsScreen = () => {
           authors: bookDetails?.volumeInfo.authors,
           detailed: true,
         })}
-        updatedAt={bookDetails?.volumeInfo.publishedDate}
+        publishedAt={bookDetails?.volumeInfo.publishedDate}
         showSkeleton={isLoading || !bookDetails}
       />
     </div>

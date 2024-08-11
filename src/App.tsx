@@ -17,12 +17,10 @@ function App() {
             <Route
               path="/books/*"
               element={
-                <BooksLayout>
-                  <Routes>
-                    <Route path="/" element={<BooksPage />} />
-                    <Route path=":bookId" element={<SigleBookDetailsPage />} />
-                  </Routes>
-                </BooksLayout>
+                <Routes>
+                  <Route path="/" element={<BooksPage />} />
+                  <Route path=":bookId" element={<SigleBookDetailsPage />} />
+                </Routes>
               }
             />
           </Routes>

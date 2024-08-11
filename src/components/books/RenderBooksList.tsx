@@ -24,7 +24,7 @@ export const RenderBooksGrid = ({ books }: Props) => {
               imageLinks?.thumbnail || "/assets/images/no_image_placeholder.svg"
             }
             author={getAuthors({ authors })}
-            updatedAt={publishedDate || ""}
+            publishedAt={publishedDate}
             onClick={() => navigate("/books/" + id)}
           />
         )

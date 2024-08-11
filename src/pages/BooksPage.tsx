@@ -1,13 +1,16 @@
 import BooksGridView from "../components/books/BooksGridView";
+import BooksLayout from "../components/layouts/BooksLayout";
 import { SectionAlign } from "../components/shared/SectionAlign";
 
 const BooksPage = () => {
   return (
-    <div className="py-8">
-      <SectionAlign>
-        <BooksGridView />
-      </SectionAlign>
-    </div>
+    <BooksLayout>
+      <div className="py-8">
+        <SectionAlign>
+          <BooksGridView />
+        </SectionAlign>
+      </div>
+    </BooksLayout>
   );
 };
 

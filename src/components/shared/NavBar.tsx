@@ -1,5 +1,11 @@
-import React, { useState, ChangeEvent, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {
+  useState,
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Input } from "../custom/Input";
 import debounce from "debounce";
 import { useNavBarScroll } from "../../lib/hooks/useNavBarScroll";
@@ -7,8 +13,13 @@ import { useNavBarScroll } from "../../lib/hooks/useNavBarScroll";
 const NavBar: React.FC = () => {
   const [search, setSearch] = useState<string>("");
   const navigate = useNavigate();
+  const mountedRef = useRef(false);
 
   const { showNavBar } = useNavBarScroll();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const title = searchParams.get("title") || "";
+
   const debouncedSearch = useCallback(
     debounce((value: string) => {
       navigate(`/books${value ? `?title=${encodeURIComponent(value)}` : ""}`);
@@ -21,6 +32,14 @@ const NavBar: React.FC = () => {
     setSearch(value);
     debouncedSearch(value);
   };
+
+  useEffect(() => {
+    if (!title) return navigate("/");
+  }, [title]);
+
+  useEffect(() => {
+    if (title) return setSearch(title);
+  }, []);
 
   return (
     <>
