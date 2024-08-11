@@ -5,6 +5,7 @@ import { RenderBooksGrid } from "./RenderBooksList";
 import BooksLoaderSkeleton from "./BooksLoaderSkelton";
 import { LinearProgress } from "../custom/LinearProgress";
 import { useSearchParams } from "react-router-dom";
+import { FetchingMoreIndicator } from "../custom/FetchingNextPageIndicator";
 
 const BooksGridView = () => {
   const [searchParams] = useSearchParams();
@@ -32,7 +33,11 @@ const BooksGridView = () => {
       ) : (
         <RenderBooksGrid books={paginatedBooks} />
       )}
-      <LinearProgress />
+      <FetchingMoreIndicator
+        ref={ref}
+        fetching={isFetchingNextPage}
+        displayInViewMonitor={paginatedBooks.length > 0}
+      />
     </div>
   );
 };

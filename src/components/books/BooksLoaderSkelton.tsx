@@ -8,7 +8,7 @@ const BooksLoaderSkeleton = () => {
           key={"post-skeleton" + index}
           title={""}
           content={""}
-          blogImage={""}
+          bookImage={""}
           author={""}
           updatedAt={""}
           onClick={() => {}}

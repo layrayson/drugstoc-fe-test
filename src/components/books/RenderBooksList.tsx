@@ -1,31 +1,31 @@
+import { useNavigate } from "react-router-dom";
 import { BookInterface } from "../../lib/types";
 import BookPreview from "./BookPreview";
+import { getAuthors } from "../../lib/helpers/getAuthors.helper";
 
 type Props = {
   books: BookInterface[];
 };
 export const RenderBooksGrid = ({ books }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <div className="grid gap-4 gap-y-12 md:gap-y-4 grid-cols-1 md:grid-cols-2">
       {books.map(
         (
-          { volumeInfo: { title, imageLinks, authors, publishedDate } },
+          { id, volumeInfo: { title, imageLinks, authors, publishedDate } },
           index
         ) => (
           <BookPreview
             key={"book-" + index}
             title={title}
             content={""}
-            blogImage={
+            bookImage={
               imageLinks?.thumbnail || "/assets/images/no_image_placeholder.svg"
             }
-            author={
-              authors && authors.length > 0 ? authors[0] : "Unknown Author"
-            }
+            author={getAuthors({ authors })}
             updatedAt={publishedDate || ""}
-            onClick={function (): void {
-              throw new Error("Function not implemented.");
-            }}
+            onClick={() => navigate("/books/" + id)}
           />
         )
       )}

@@ -5,7 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 interface BookPreviewProps {
   title: string;
   content: string;
-  blogImage: string;
+  bookImage: string;
   author: string;
   updatedAt: string;
   onClick(): void;
@@ -14,7 +14,7 @@ interface BookPreviewProps {
 const BookPreview = ({
   title,
   content,
-  blogImage,
+  bookImage,
   author,
   updatedAt,
   onClick,
@@ -53,8 +53,8 @@ const BookPreview = ({
             ) : (
               <img
                 alt={title}
-                src={blogImage}
-                className="w-full h-80 object-fill md:rounded hover:opacity-50 transition duration-300 object-cover"
+                src={bookImage}
+                className="w-full h-80 object-contain md:rounded-md hover:opacity-50 transition duration-300 bg-slate-100"
               />
             )}
           </div>
