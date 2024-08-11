@@ -5,26 +5,29 @@ import BooksPage from "./pages/BooksPage";
 import BooksLayout from "./components/layouts/BooksLayout";
 import SigleBookDetailsPage from "./pages/SingleBookDetailsPage";
 import RTQueryClient from "./components/wrappers/RTQQueryClient";
+import Layout from "./components/layouts/Layout";
 
 function App() {
   return (
     <Router>
-      <RTQueryClient>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/books/*"
-            element={
-              <BooksLayout>
-                <Routes>
-                  <Route path="/" element={<BooksPage />} />
-                  <Route path=":id" element={<SigleBookDetailsPage />} />
-                </Routes>
-              </BooksLayout>
-            }
-          />
-        </Routes>
-      </RTQueryClient>
+      <Layout>
+        <RTQueryClient>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/books/*"
+              element={
+                <BooksLayout>
+                  <Routes>
+                    <Route path="/" element={<BooksPage />} />
+                    <Route path=":bookId" element={<SigleBookDetailsPage />} />
+                  </Routes>
+                </BooksLayout>
+              }
+            />
+          </Routes>
+        </RTQueryClient>
+      </Layout>
     </Router>
   );
 }

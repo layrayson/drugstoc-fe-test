@@ -3,7 +3,7 @@ import { SectionAlign } from "../components/shared/SectionAlign";
 
 const BooksPage = () => {
   return (
-    <div>
+    <div className="py-8">
       <SectionAlign>
         <BooksGridView />
       </SectionAlign>
