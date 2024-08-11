@@ -20,8 +20,11 @@ const HomeScreen = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center">
-      <div className="w-1/3 flex gap-x-2 ">
+    <div className="h-screen flex items-center justify-center relative">
+      <div className="absolute top-8 left-8">
+        <img src="/assets/logos/logo.svg" alt="brand" className="h-16 w-16" />
+      </div>
+      <div className="w-5/6 md:w-1/3 flex gap-x-2 ">
         <div className="flex-grow">
           <Input
             outlineClassName="border-black-500 rounded-lg"

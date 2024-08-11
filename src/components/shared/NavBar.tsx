@@ -44,7 +44,7 @@ const NavBar: React.FC = () => {
   return (
     <>
       <nav
-        className={`px-2 md:px-4 h-16 flex items-center shadow fixed w-full transition-transform duration-300 bg-white  ${
+        className={`px-2 md:px-4 h-16 flex items-center shadow fixed z-50 w-full transition-transform duration-300 bg-white  ${
           showNavBar ? "transform translate-y-0" : "transform -translate-y-full"
         }`}
       >
@@ -60,7 +60,7 @@ const NavBar: React.FC = () => {
               <h5 className="font-medium text-lg hidden md:block">Book.ly</h5>
             </a>
             <div className="flex-grow">
-              <div className="w-1/3">
+              <div className=" w-3/4 md:w-1/3">
                 <Input
                   value={search}
                   onChange={handleSearchChange}
