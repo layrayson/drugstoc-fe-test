@@ -6,15 +6,17 @@ import BooksLoaderSkeleton from "./BooksLoaderSkelton";
 import { LinearProgress } from "../custom/LinearProgress";
 import { useSearchParams } from "react-router-dom";
 import { FetchingMoreIndicator } from "../custom/FetchingNextPageIndicator";
+import { toast } from "react-toastify";
 
 const BooksGridView = () => {
   const [searchParams] = useSearchParams();
 
   const searchQuery = searchParams.get("title") || "";
 
-  const { data, status, fetchNextPage, isFetchingNextPage } = useFetchBooks({
-    q: searchQuery,
-  });
+  const { data, status, fetchNextPage, isFetchingNextPage, error } =
+    useFetchBooks({
+      q: searchQuery,
+    });
 
   const { ref, inView } = useInView();
 
@@ -26,9 +28,14 @@ const BooksGridView = () => {
     if (inView) fetchNextPage();
   }, [inView, fetchNextPage]);
 
+  useEffect(() => {
+    if (!error) return;
+    toast.error("Something went wrong");
+  }, [error]);
+
   return (
     <div>
-      {status === "pending" ? (
+      {status === "pending" || error ? (
         <BooksLoaderSkeleton />
       ) : (
         <RenderBooksGrid books={paginatedBooks} />

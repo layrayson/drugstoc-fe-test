@@ -28,7 +28,7 @@ const HomeScreen = () => {
         <div className="flex-grow">
           <Input
             outlineClassName="border-black-500 rounded-lg"
-            className="!text-xl placeholder:!text-xl !font-normal placeholder:!font-light h-16"
+            className="!text-xl placeholder:!text-xl !font-normal placeholder:!font-light h-16 !px-4"
             placeholder="Search for books here"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
