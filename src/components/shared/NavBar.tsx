@@ -22,7 +22,7 @@ const NavBar: React.FC = () => {
 
   const debouncedSearch = useCallback(
     debounce((value: string) => {
-      navigate(`/books${value ? `?title=${encodeURIComponent(value)}` : ""}`);
+      setSearchParams({ title: value });
     }, 300),
     [navigate]
   );

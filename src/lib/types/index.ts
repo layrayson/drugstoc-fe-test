@@ -102,7 +102,7 @@ export interface SearchInfo {
 export type FetchBooksResponse = {
   kind: string;
   totalItems: number;
-  items: BookInterface[];
+  items?: BookInterface[];
 };
 
 export const BOOKS_PAGE_LIMIT = 20;
