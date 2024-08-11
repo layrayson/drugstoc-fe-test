@@ -1,9 +1,12 @@
 import BooksGridView from "../components/books/BooksGridView";
+import { SectionAlign } from "../components/shared/SectionAlign";
 
 const BooksPage = () => {
   return (
     <div>
-      <BooksGridView />
+      <SectionAlign>
+        <BooksGridView />
+      </SectionAlign>
     </div>
   );
 };

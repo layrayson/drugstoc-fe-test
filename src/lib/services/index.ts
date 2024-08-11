@@ -6,7 +6,7 @@ export default class BookService {
   fetchBooks = async (params: FetchBooksRequestInput) =>
     await axiosClient
       .get<any, FetchBooksResponse>(
-        `/social-microservice/all-posts${constructQueryFromParams(params)}`
+        `/volumes${constructQueryFromParams(params)}`
       )
       .then((response) => response)
       .catch((error) => {

@@ -18,7 +18,7 @@ export const useFetchBooks = (
       }),
     getNextPageParam: (lastPage, allPages) => {
       return checkIfHasNextPage({
-        count: lastPage.data.count,
+        count: lastPage.totalItems,
         currentPage: allPages.length,
         limit: BOOKS_PAGE_LIMIT,
       })

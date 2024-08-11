@@ -11,7 +11,7 @@ interface XAxiosInstance extends AxiosInstance {
   ): Promise<R>;
 }
 const axiosClient: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BOOKS_API,
+  baseURL: process.env.REACT_APP_GOOGLE_BOOKS_API,
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
