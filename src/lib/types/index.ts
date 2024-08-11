@@ -4,6 +4,10 @@ export type FetchBooksRequestInput = {
   limit: number;
 };
 
+export type FetchSingleBookRequestInput = {
+  bookId: string;
+};
+
 export interface BookInterface {
   kind: string;
   id: string;
@@ -14,6 +18,8 @@ export interface BookInterface {
   accessInfo: AccessInfo;
   searchInfo?: SearchInfo;
 }
+
+export type FetchSingleBookResponse = BookInterface;
 
 export interface VolumeInfo {
   title: string;

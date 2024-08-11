@@ -1,5 +1,9 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { BOOKS_PAGE_LIMIT, FetchBooksRequestInput } from "../types";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import {
+  BOOKS_PAGE_LIMIT,
+  FetchBooksRequestInput,
+  FetchSingleBookRequestInput,
+} from "../types";
 import BookService from "../services";
 import { checkIfHasNextPage } from "../helpers/index.helper";
 
@@ -26,5 +30,12 @@ export const useFetchBooks = (
         : undefined;
     },
     initialPageParam: 1,
+  });
+};
+
+export const useFetchSingleBook = (params: FetchSingleBookRequestInput) => {
+  return useQuery({
+    queryKey: ["fetch-single-book", params.bookId],
+    queryFn: () => bookService.fetchSingleBook(params),
   });
 };

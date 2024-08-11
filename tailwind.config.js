@@ -4,7 +4,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ["Nunito", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
+      },
+      keyframes: {
+        progress: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        progress: "progress 0.7s linear infinite",
       },
     },
   },
