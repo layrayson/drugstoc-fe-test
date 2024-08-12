@@ -23,7 +23,11 @@ const SingleBookDetailsScreen = () => {
       <BookDetailedView
         title={bookDetails?.volumeInfo.title.substring(0, 30)}
         content={bookDetails?.volumeInfo.description}
-        bookImage={bookDetails?.volumeInfo.imageLinks?.thumbnail ?? ""}
+        bookImage={
+          bookDetails?.volumeInfo.imageLinks?.small ??
+          bookDetails?.volumeInfo.imageLinks?.thumbnail ??
+          "/assets/images/no_image_placeholder.svg"
+        }
         author={getAuthors({
           authors: bookDetails?.volumeInfo.authors,
           detailed: true,
