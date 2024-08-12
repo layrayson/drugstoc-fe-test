@@ -6,31 +6,34 @@ describe("FetchingMoreIndicator", () => {
     render(
       <FetchingMoreIndicator fetching={true} displayInViewMonitor={true} />
     );
-    const indicator = screen.getByTestId("fetching-more-indicator");
+    const indicator = screen.getByTestId("linear-progress");
     expect(indicator).toBeInTheDocument();
   });
 
-  it("does not render the FetchingMoreIndicator when fetching is false", () => {
+  it("renders the Inview mointor when displayInViewMonitor is true", () => {
     render(
       <FetchingMoreIndicator fetching={false} displayInViewMonitor={true} />
     );
-    const indicator = screen.queryByTestId("fetching-more-indicator");
-    expect(indicator).not.toBeInTheDocument();
+    const monitor = screen.queryByTestId("in-view-monitor");
+    expect(monitor).toBeInTheDocument();
   });
 
-  it("does not render the FetchingMoreIndicator when displayInViewMonitor is false", () => {
+  it("renders the FetchingMoreIndicator when fetching is true", () => {
     render(
       <FetchingMoreIndicator fetching={true} displayInViewMonitor={false} />
     );
-    const indicator = screen.queryByTestId("fetching-more-indicator");
-    expect(indicator).not.toBeInTheDocument();
+    const indicator = screen.getByTestId("linear-progress");
+    expect(indicator).toBeInTheDocument();
   });
 
-  it("does not render the FetchingMoreIndicator when both fetching and displayInViewMonitor are false", () => {
+  it("does not render the FetchingMoreIndicator or inview monitor when both fetching and displayInViewMonitor are false", () => {
     render(
       <FetchingMoreIndicator fetching={false} displayInViewMonitor={false} />
     );
     const indicator = screen.queryByTestId("fetching-more-indicator");
+    const monitor = screen.queryByTestId("in-view-monitor");
+
     expect(indicator).not.toBeInTheDocument();
+    expect(monitor).not.toBeInTheDocument();
   });
 });
