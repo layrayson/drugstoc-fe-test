@@ -1,14 +1,15 @@
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
-  outlineClassName?: string;
+  outlineclassname?: string;
 };
 
 export const Input = (props: Props) => {
   return (
     <div className="relative">
       <div
+        data-testid="input-wrapper"
         className={`rounded-md  text-13px flex items-center transition-all duration-200 ease-in-out border-[1.5px] border-black-200 focus-within:border-blue-500 focus-within:ring-blue-200 focus-within:ring-4 
-       ${props.outlineClassName}`}
+       ${props.outlineclassname}`}
       >
         <input
           {...props}

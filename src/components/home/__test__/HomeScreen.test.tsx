@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "@testing-library/jest-dom";
-import HomeScreen from "./HomeScreen";
+import HomeScreen from "../HomeScreen";
 
 describe("HomeScreen", () => {
-  it("renders the input and button", () => {
+  it("renders the search input", () => {
     render(
       <Router>
         <HomeScreen />
@@ -14,6 +14,15 @@ describe("HomeScreen", () => {
     expect(
       screen.getByPlaceholderText("Search for books here")
     ).toBeInTheDocument();
+  });
+
+  it("renders the search button", () => {
+    render(
+      <Router>
+        <HomeScreen />
+      </Router>
+    );
+
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 

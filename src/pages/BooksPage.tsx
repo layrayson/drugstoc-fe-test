@@ -1,4 +1,4 @@
-import BooksGridView from "../components/books/BooksGridView";
+import BooksGridView from "../components/books/BooksGridView/BooksGridView";
 import BooksLayout from "../components/layouts/BooksLayout";
 import { SectionAlign } from "../components/shared/SectionAlign";
 

@@ -1,7 +1,7 @@
 import { KeyboardEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../custom/Button";
-import { Input } from "../custom/Input";
+import Button from "../custom/Button/Button";
+import { Input } from "../custom/Input/Input";
 
 const HomeScreen = () => {
   const [title, setTitle] = useState("");
@@ -27,7 +27,7 @@ const HomeScreen = () => {
       <div className="w-5/6 md:w-1/3 flex gap-x-2 ">
         <div className="flex-grow">
           <Input
-            outlineClassName="border-black-500 rounded-lg"
+            outlineclassname="border-black-500 rounded-lg"
             className="!text-xl placeholder:!text-xl !font-normal placeholder:!font-light h-16 !px-4"
             placeholder="Search for books here"
             value={title}

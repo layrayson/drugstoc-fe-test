@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from "react";
-import { useFetchBooks } from "../../lib/hooks";
+import { useFetchBooks } from "../../../lib/hooks";
 import { useInView } from "react-intersection-observer";
-import { RenderBooksGrid } from "./RenderBooksList";
-import BooksLoaderSkeleton from "./BooksLoaderSkelton";
-import { LinearProgress } from "../custom/LinearProgress";
+import { RenderBooksGrid } from "../RenderBooksList";
+import BooksLoaderSkeleton from "../BooksLoaderSkelton";
+import { LinearProgress } from "../../custom/LinearProgress";
 import { useSearchParams } from "react-router-dom";
-import { FetchingMoreIndicator } from "../custom/FetchingNextPageIndicator";
+import { FetchingMoreIndicator } from "../../custom/FetchingNextPageIndicator/FetchingNextPageIndicator";
 import { toast } from "react-toastify";
 
 const BooksGridView = () => {

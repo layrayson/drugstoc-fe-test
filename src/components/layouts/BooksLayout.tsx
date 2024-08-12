@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../shared/NavBar";
+import NavBar from "../shared/NavBar/NavBar";
 
 const BooksLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

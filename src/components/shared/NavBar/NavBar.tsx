@@ -6,9 +6,9 @@ import React, {
   useRef,
 } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { Input } from "../custom/Input";
+import { Input } from "../../custom/Input/Input";
 import debounce from "debounce";
-import { useNavBarScroll } from "../../lib/hooks/useNavBarScroll";
+import { useNavBarScroll } from "../../../lib/hooks/useNavBarScroll";
 
 const NavBar: React.FC = () => {
   const [search, setSearch] = useState<string>("");
